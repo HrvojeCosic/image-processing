@@ -1,6 +1,7 @@
-#include "ImageUtils.c"
+#include "Image.c"
 
 int main() {
-    readImg("exampleImg.jpg");
+    IMAGE img = readImg("exampleImg.jpg");
+    free(img.data);
     return 0;
 }

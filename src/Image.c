@@ -5,18 +5,18 @@
 #include "Image.h"
 #include <string.h>
 
-bool readImg(const char* filename) {
+IMAGE readImg(const char* filename) {
     char path[4] = "../";
 
     IMAGE img = {0};
-    uint8_t *result = stbi_load(
+    img.data = stbi_load(
         strcat(path, filename), &img.width, &img.height, &img.channelNumber, 0
     );
-    if (result == NULL) {
+    img.size = img.width*img.height*img.channelNumber;
+
+    if (img.data == NULL) {
         printf("Error in loading the image\n");
-        free(result);
-        return false;
+        exit(1);
     }
-    free(result);
-    return true;
+    return img;
 }
