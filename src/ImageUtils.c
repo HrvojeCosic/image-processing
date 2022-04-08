@@ -14,7 +14,9 @@ bool readImg(const char* filename) {
     );
     if (result == NULL) {
         printf("Error in loading the image\n");
+        free(result);
         return false;
     }
+    free(result);
     return true;
 }
