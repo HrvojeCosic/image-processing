@@ -6,7 +6,7 @@ typedef struct Image {
     size_t size;
     int width;
     int height;
-    int channelNumber; // number of colors values per pixel (e.g. RGB has 3)
+    int channelNumber;
 }IMAGE;
 
 bool readImg(const char* filename);
