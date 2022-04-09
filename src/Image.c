@@ -6,12 +6,15 @@
 #include <string.h>
 
 IMAGE readImg(const char* filename) {
-    char path[4] = "../";
+    char path[70] = "../";
+    int concatted = strcat_s(path, sizeof(path), filename);
+    if (concatted != 0) {
+        printf("Error in creating the image path\n");
+        exit(1);
+    }
 
     IMAGE img = {0};
-    img.data = stbi_load(
-        strcat(path, filename), &img.width, &img.height, &img.channelNumber, 0
-    );
+    img.data = stbi_load(path, &img.width, &img.height, &img.channelNumber, 0);
     img.size = img.width*img.height*img.channelNumber;
 
     if (img.data == NULL) {

@@ -9,5 +9,5 @@ typedef struct Image {
     int channelNumber;
 }IMAGE;
 
-IMAGE readImg(const char* filename);
-bool writeToImg(char* filename);
+IMAGE readImg(const char*);
+bool writeToImg(char*);
