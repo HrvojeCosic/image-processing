@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+char* imageExtensions[] = {".jpg", ".png", ".bmp", NULL};
 typedef struct Image {
     uint8_t* data;
     size_t size;
@@ -9,6 +10,7 @@ typedef struct Image {
     int channelNumber;
 }IMAGE;
 
+char* getImgType(const char*);
 IMAGE readImg(const char*);
 bool writeToImg(char*);
-char* createImagePath(char*, int, const char*);
+char* createImgPath(char*, int, const char*);

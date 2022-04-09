@@ -7,7 +7,7 @@
 
 IMAGE readImg(const char* filename) {
     char path[70] = "";
-    createImagePath(path, sizeof(path), filename);
+    createImgPath(path, sizeof(path), filename);
 
     IMAGE img = {0};
     img.data = stbi_load(path, &img.width, &img.height, &img.channelNumber, 0);
@@ -23,7 +23,7 @@ IMAGE readImg(const char* filename) {
 // bool writeToImage(char* filename) {
 // }
 
-char* createImagePath(char* dest, int destSize, const char* filename) {
+char* createImgPath(char* dest, int destSize, const char* filename) {
     char dirMovement[4] = "../";
     int moved = strcat_s(dest, destSize, dirMovement);
     int applied = strcat_s(dest, destSize, filename);
@@ -31,4 +31,19 @@ char* createImagePath(char* dest, int destSize, const char* filename) {
         printf("Error in creating the image path\n");
         exit(1);
     }
+}
+
+char* getImgType (const char* filename) {
+    const char* fileExt = strrchr(filename, '.');
+
+    int i = 0;
+    while (*(imageExtensions+i) != NULL) {
+        if (strcmp(fileExt, *(imageExtensions+i)) == 0) {
+            return *(imageExtensions+i);
+        }
+        i++;
+    }
+
+    printf("Error: image type not supported");
+    exit(1);
 }
