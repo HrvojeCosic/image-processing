@@ -11,3 +11,4 @@ typedef struct Image {
 
 IMAGE readImg(const char*);
 bool writeToImg(char*);
+char* createImagePath(char*, int, const char*);
