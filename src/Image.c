@@ -20,8 +20,23 @@ IMAGE readImg(const char* filename) {
     return img;
 }
 
-// bool writeToImage(char* filename) {
-// }
+bool writeToImg(char* filename, IMAGE props) {
+    char* type = getImgType(filename);
+    char fullFilename[70] = "";
+    createImgPath(fullFilename, sizeof(fullFilename), filename);
+    
+    int success = 0;
+    if (strcmp(type, ".jpg") == 0) {
+        success = stbi_write_jpg(fullFilename, props.width, props.height, props.channelNumber, props.data, 100);
+    } else if (strcmp(type, ".png")) {
+        int stride = props.width*props.channelNumber;
+        success = stbi_write_png(fullFilename, props.width, props.height, props.channelNumber, props.data, stride);
+    } else if (strcmp(type, ".bmp")) {
+        success = stbi_write_bmp(fullFilename, props.width, props.height, props.channelNumber, props.data);
+    }
+
+    return success != 0;
+}
 
 char* createImgPath(char* dest, int destSize, const char* filename) {
     char dirMovement[4] = "../";
