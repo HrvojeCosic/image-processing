@@ -47,7 +47,7 @@ bool writeToImg(char* filename, IMAGE props) {
     return success != 0;
 }
 
-char* createImgPath(char* dest, int destSize, const char* filename) {
+void createImgPath(char* dest, int destSize, const char* filename) {
     char dirMovement[4] = "../";
     int moved = strcat_s(dest, destSize, dirMovement);
     int applied = strcat_s(dest, destSize, filename);
