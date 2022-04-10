@@ -1,7 +1,8 @@
-#include "Image.c"
+#include "Image.h"
+#include "./resize/nearestNeighbor.h"
 
 int main() {
-    IMAGE img = readImg("exampleImg.jpg");
-    free(img.data);
+    IMAGE resizeProps = { NULL, 0, 200, 0, 3 };
+    resize("exampleImg.jpg", resizeProps);
     return 0;
 }
