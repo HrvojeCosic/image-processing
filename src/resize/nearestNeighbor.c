@@ -1,7 +1,15 @@
 #include "nearestNeighbor.h"
 
 void resize(char* filename, IMAGE props) {
-    IMAGE img = readImg(filename);
-    printf("test: %d\n", props.width);
-    printf("test2: %d\n", img.width);
+    IMAGE originalImg = readImg(filename);
+    fixAspectRatio(originalImg, &props.width, &props.height);
+}
+
+void fixAspectRatio(IMAGE image, int* wProp, int* hProp) {
+    float aspectRatio = (float)image.width / image.height;
+    if (*wProp != 0) {
+        *hProp = (*wProp)/aspectRatio;
+    } else if (*hProp != 0) {
+        *wProp = (*hProp)*aspectRatio;
+    }
 }
