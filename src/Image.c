@@ -27,12 +27,21 @@ bool writeToImg(char* filename, IMAGE props) {
     
     int success = 0;
     if (strcmp(type, ".jpg") == 0) {
-        success = stbi_write_jpg(fullFilename, props.width, props.height, props.channelNumber, props.data, 100);
+        success = stbi_write_jpg(
+            fullFilename, props.width, props.height, 
+            props.channelNumber, props.data, 100
+            );
     } else if (strcmp(type, ".png")) {
         int stride = props.width*props.channelNumber;
-        success = stbi_write_png(fullFilename, props.width, props.height, props.channelNumber, props.data, stride);
+        success = stbi_write_png(
+            fullFilename, props.width, props.height, 
+            props.channelNumber, props.data, stride
+            );
     } else if (strcmp(type, ".bmp")) {
-        success = stbi_write_bmp(fullFilename, props.width, props.height, props.channelNumber, props.data);
+        success = stbi_write_bmp(
+            fullFilename, props.width, props.height, 
+            props.channelNumber, props.data
+            );
     }
 
     return success != 0;
