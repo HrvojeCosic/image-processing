@@ -12,14 +12,13 @@ void resize(char* filename, IMAGE newProps) {
     }
     newProps.data = malloc(newProps.size * sizeof(uint8_t));
 
-    double xRatio = originalImg.width / newProps.width;
-    double yRatio = originalImg.height / newProps.height;
+    double xRatio = originalImg.width / (double)newProps.width;
+    double yRatio = originalImg.height / (double)newProps.height;
     int ch = originalImg.channelNumber;
     for (int y=0; y<newProps.height; y++) {
         for (int x=0; x<newProps.width; x++) {
             int newPos = (x + y * newProps.width) * ch;
-            int orgPos = ( (x * xRatio) + (y * originalImg.width * yRatio) ) * ch;
-
+            int orgPos = ( floor(x * xRatio) + (originalImg.width * floor(y * yRatio)) ) * ch;
             for (int i=0; i<ch; i++) 
                 newProps.data[newPos + i] = originalImg.data[orgPos + i];
         }
