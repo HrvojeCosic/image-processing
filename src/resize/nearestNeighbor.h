@@ -4,7 +4,7 @@
 #include <math.h>
 #include "../Image.h"
 
-void resize(char*, IMAGE);
+void nearestNeighborResize(char*, IMAGE);
 void fixAspectRatio(IMAGE, int*, int*);
 
 #endif
