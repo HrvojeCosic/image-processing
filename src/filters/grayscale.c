@@ -9,15 +9,13 @@ void applyGrayscale(char* filename) {
     }
 
     for (int i=0; i<img.size; i+=img.channelNumber) {
-    int greyLvl = 0;
+        int ch = img.channelNumber;
+        int grayLvl = 0;
+        while(ch != 0) grayLvl += *(img.data + i + (--ch));
+        grayLvl /= img.channelNumber;
 
-        for (int j=i; j < i+img.channelNumber; j++) 
-            greyLvl += *(img.data+j);
-
-        greyLvl /= img.channelNumber;
-
-        for (int j=i; j < i+img.channelNumber; j++)
-            *(img.data+j) = greyLvl;
+        ch = img.channelNumber;
+        while(ch != 0) *(img.data + i + (--ch)) = grayLvl;
 
     }
 
