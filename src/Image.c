@@ -67,6 +67,6 @@ char* getImgType (const char* filename) {
         i++;
     }
 
-    printf("Error: image type not supported");
+    printf("Error: image type not supported.\n");
     exit(1);
 }
