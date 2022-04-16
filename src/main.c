@@ -3,6 +3,6 @@
 #include "./filters/filters.h"
 
 int main() {
-    applyGrayscale("exampleImg.jpg");
+    applyBinary("exampleImg.jpg");
     return 0;
 }

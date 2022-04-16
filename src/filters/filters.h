@@ -4,5 +4,6 @@
 #include "../Image.h"
 
 void applyGrayscale(char*);
+void applyBinary(char*);
 
 #endif
