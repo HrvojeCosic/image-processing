@@ -1,5 +1,5 @@
-#include "nearestNeighbor.h"
-#include "../Image.h"
+#include "resize.h"
+#include "resize_internal.h"
 
 void nearestNeighborResize(char* filename, IMAGE newProps) {
     IMAGE originalImg = readImg(filename);
@@ -29,13 +29,4 @@ void nearestNeighborResize(char* filename, IMAGE newProps) {
     printf("Image resized successfuly.\n");
     free(newProps.data);
     free(originalImg.data);
-}
-
-void fixAspectRatio(IMAGE image, int* wProp, int* hProp) {
-    float aspectRatio = (float)image.width / image.height;
-    if (*wProp != 0) {
-        *hProp = (*wProp) / aspectRatio;
-    } else if (*hProp != 0) {
-        *wProp = (*hProp) * aspectRatio;
-    }
 }

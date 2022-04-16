@@ -1,5 +1,5 @@
 #include "Image.h"
-#include "./resize/nearestNeighbor.h"
+#include "./resize/resize.h"
 #include "./filters/filters.h"
 
 int main() {
