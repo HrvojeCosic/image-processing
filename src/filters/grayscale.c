@@ -9,10 +9,16 @@ void applyGrayscale(char* filename) {
     }
 
     for (int i=0; i<img.size; i+=img.channelNumber) {
-        int greyLvl = (img.data[i] + img.data[i + 1] + img.data[i + 2]) / 3;
+    int greyLvl = 0;
+
+        for (int j=i; j < i+img.channelNumber; j++) 
+            greyLvl += *(img.data+j);
+
+        greyLvl /= img.channelNumber;
 
         for (int j=i; j < i+img.channelNumber; j++)
             *(img.data+j) = greyLvl;
+
     }
 
     writeToImg("./processedImg.jpg", img);
