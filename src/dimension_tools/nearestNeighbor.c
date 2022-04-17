@@ -1,5 +1,5 @@
-#include "resize.h"
-#include "resize_internal.h"
+#include "dimension_tools.h"
+#include "dimension_tools_internal.h"
 
 void nearestNeighborResize(char* filename, IMAGE newProps) {
     IMAGE originalImg = readImg(filename);

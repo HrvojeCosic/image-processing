@@ -1,5 +1,5 @@
-#ifndef RESIZE_H
-#define RESIZE_H
+#ifndef DIMENSION_TOOLS_H
+#define DIMENSION_TOOLS_H
 
 #include <math.h>
 #include "../Image.h"

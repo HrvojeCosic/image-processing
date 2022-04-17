@@ -1,5 +1,5 @@
 #include "Image.h"
-#include "./resize/resize.h"
+#include "./dimension_tools/dimension_tools.h"
 #include "./filters/filters.h"
 
 int main() {

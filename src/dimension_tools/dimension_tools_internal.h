@@ -1,5 +1,5 @@
-#ifndef RESIZE_INTERNAL_H
-#define RESIZE_INTERNAL_H
+#ifndef DIMENSION_TOOLS_INTERNAL_H
+#define DIMENSION_TOOLS_INTERNAL_H
 
 #include "../Image.h"
 
