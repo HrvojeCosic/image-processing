@@ -29,3 +29,29 @@ void flipHorizontal(char* filename) {
     printf("Image has been flipped horizontally.\n");
     free(img.data);
 }
+
+void flipVertical(char* filename) { 
+    IMAGE img = readImg(filename);
+
+    unsigned top = 0;
+    unsigned chWidth = img.width * img.channelNumber;
+    unsigned bottom = (img.height - 1) * chWidth;
+    while (top < bottom) {
+
+        for (int x=0; x<chWidth; x++) {
+            int px1Idx = top + x;
+            int px2Idx = bottom + x;
+
+            uint8_t temp = img.data[px1Idx];
+            img.data[px1Idx] = img.data[px2Idx];
+            img.data[px2Idx] = temp;
+        }
+        top += chWidth;
+        bottom -= chWidth;
+        
+    }
+
+    writeToImg("./processedImg.jpg", img);
+    printf("Image has been flipped vertically.\n");
+    free(img.data);
+}

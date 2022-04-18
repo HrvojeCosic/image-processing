@@ -6,5 +6,6 @@
 
 void nearestNeighborResize(char*, IMAGE);
 void flipHorizontal(char*);
+void flipVertical(char*);
 
 #endif
