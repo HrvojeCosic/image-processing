@@ -5,5 +5,6 @@
 #include "../Image.h"
 
 void nearestNeighborResize(char*, IMAGE);
+void flipHorizontal(char*);
 
 #endif
