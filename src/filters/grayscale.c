@@ -19,7 +19,7 @@ void applyGrayscale(char* filename) {
 
     }
 
-    writeToImg("./processedImg.jpg", img);
+    submitChanges(img);
     printf("Grayscale applied successfuly.\n");
     free(img.data);
 }

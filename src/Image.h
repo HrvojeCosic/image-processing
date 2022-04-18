@@ -22,5 +22,6 @@ char* getImgType(const char*);
 IMAGE readImg(const char*);
 bool writeToImg(char*, IMAGE);
 void createImgPath(char*, int, const char*);
+void submitChanges(IMAGE);
 
 #endif

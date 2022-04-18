@@ -46,6 +46,11 @@ bool writeToImg(char* filename, IMAGE props) {
     return success != 0;
 }
 
+void submitChanges(IMAGE img) {
+    // TODO: allow saving in arbitrary folders
+    writeToImg("./processedImg.jpg", img);
+}
+
 void createImgPath(char* dest, int destSize, const char* filename) {
     char dirMovement[4] = "../";
     int moved = strcat_s(dest, destSize, dirMovement);

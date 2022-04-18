@@ -19,7 +19,7 @@ void applyBinary(char* filename) {
             *(img.data+j) = finalPixel;
     }
 
-    writeToImg("./processedImg.jpg", img);
+    submitChanges(img);
     printf("Binary filter applied successfuly.\n");
     free(img.data);
 }

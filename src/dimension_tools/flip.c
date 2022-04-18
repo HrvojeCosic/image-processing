@@ -25,7 +25,7 @@ void flipHorizontal(char* filename) {
         right = img.width;
     }
 
-    writeToImg("./processedImg.jpg", img);
+    submitChanges(img);
     printf("Image has been flipped horizontally.\n");
     free(img.data);
 }
@@ -51,7 +51,7 @@ void flipVertical(char* filename) {
         
     }
 
-    writeToImg("./processedImg.jpg", img);
+    submitChanges(img);
     printf("Image has been flipped vertically.\n");
     free(img.data);
 }
