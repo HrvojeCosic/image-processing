@@ -4,25 +4,23 @@
 IMAGE img;
 void applyBoxBlur(char* filename) {
     img = readImg(filename);
-    IMAGE imgCopy = readImg(filename);
+    IMAGE newImg = readImg(filename);
 
-    int wholeHeight = (img.height * img.channelNumber) - img.channelNumber; 
-    for (int y=1; y<wholeHeight; y++) {
-        for (int x=1; x<img.width*img.channelNumber; x+=img.channelNumber) {
-            int newPixelValue = (int)getNeighborSum((y * img.width) + x)/9;
-            imgCopy.data[y*img.width + x] = newPixelValue;
+    for (int y=0; y<img.height*img.channelNumber; y++) {
+        for (int x=0; x<img.width; x++) {
+            int newPixelValue = getNeighborSum((y * img.width) + x) / 9;
+            newImg.data[y*img.width + x] = newPixelValue;
         }
     }
 
-    submitChanges(imgCopy);
+    submitChanges(newImg);
     printf("Image blurred (using box blur) successfully.\n");
-    free(imgCopy.data);
+    free(newImg.data);
     free(img.data);
     return;
 }
 
 double getNeighborSum(int centralPixel) {
-    // ALL THESE ARE STARTING(!) POSITIONS OF CORRESPONDING PIXELS
     int neighborTop = centralPixel - img.width;
     int neighborLeft = centralPixel - img.channelNumber;
     int neighborTopLeft = neighborLeft - img.width;
@@ -42,13 +40,7 @@ double getNeighborSum(int centralPixel) {
     double neighborSum = 0;
     for (int i=0; i<neighborLen; i++) {
         if (neighbors[i] < 0 || neighbors[i] > img.size) continue;
-
-        int ch = img.channelNumber;
-        double pixelAvg = 0; 
-        while (ch != 0) pixelAvg += *(img.data+neighbors[i] + (--ch));
-        pixelAvg /= img.channelNumber;
-
-        neighborSum += pixelAvg;
+        neighborSum += *(img.data+neighbors[i]);
     }
     return neighborSum;
 }
