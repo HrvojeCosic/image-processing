@@ -61,7 +61,7 @@ void createImgPath(char* dest, int destSize, const char* filename) {
     }
 }
 
-char* getImgType (const char* filename) {
+char* getImgType(const char* filename) {
     const char* fileExt = strrchr(filename, '.');
 
     int i = 0;

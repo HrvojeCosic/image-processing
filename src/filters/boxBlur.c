@@ -2,14 +2,14 @@
 #include "filters_internal.h"
 
 IMAGE img;
-
 void applyBoxBlur(char* filename) {
     img = readImg(filename);
-    IMAGE imgCopy = img;  //TODO: DEEP COPY
+    IMAGE imgCopy = readImg(filename);
 
-    for (int y=1; y<img.height; y++) {
-        for (int x=0; x<img.width*img.channelNumber; x+=img.channelNumber) {
-            int newPixelValue = (int)getNeighborSum((y * img.width) + x);
+    int wholeHeight = (img.height * img.channelNumber) - img.channelNumber; 
+    for (int y=1; y<wholeHeight; y++) {
+        for (int x=1; x<img.width*img.channelNumber; x+=img.channelNumber) {
+            int newPixelValue = (int)getNeighborSum((y * img.width) + x)/9;
             imgCopy.data[y*img.width + x] = newPixelValue;
         }
     }
@@ -50,6 +50,5 @@ double getNeighborSum(int centralPixel) {
 
         neighborSum += pixelAvg;
     }
-
-    return (neighborSum / 9);
+    return neighborSum;
 }
