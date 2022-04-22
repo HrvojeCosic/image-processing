@@ -5,5 +5,6 @@
 
 void applyGrayscale(char*);
 void applyBinary(char*);
+void applyBoxBlur(char*);
 
 #endif

@@ -7,4 +7,6 @@
 int computeThreshold(IMAGE); // https://en.wikipedia.org/wiki/Otsu%27s_method
 int* getPixelHistogram(IMAGE);
 
+double getNeighborSum(int);
+
 #endif

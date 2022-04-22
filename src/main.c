@@ -3,6 +3,6 @@
 #include "./filters/filters.h"
 
 int main() {
-    applyBinary("exampleImg.jpg");
+    applyBoxBlur("exampleImg.jpg");
     return 0;
 }
