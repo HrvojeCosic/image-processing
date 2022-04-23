@@ -3,6 +3,5 @@
 #include "./filters/filters.h"
 
 int main() {
-    applyBoxBlur("exampleImg.jpg");
     return 0;
 }
