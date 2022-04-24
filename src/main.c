@@ -3,5 +3,6 @@
 #include "./filters/filters.h"
 
 int main() {
+    rotateLeft("exampleImg.jpg");
     return 0;
 }
