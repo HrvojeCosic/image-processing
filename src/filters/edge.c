@@ -2,12 +2,9 @@
 #include "filters_internal.h"
 
 void accentuateEdges (char* filename) {
-    IMAGE img = readImg(filename);
-
-    if (img.channelNumber >= 3) {
-        applyGrayscale(filename);
-        img = readImg("./processedImg.jpg");
-    }
+    applyGrayscale(filename);
+    IMAGE img = readImg("./processedImg.jpg");
+    IMAGE imgCopy = readImg("./processedImg.jpg");
 
     int kernelX[3][3] = {
         {1, 0, -1},
@@ -20,14 +17,22 @@ void accentuateEdges (char* filename) {
         {-1, -2, -1}
     };
 
-    for (int y=0; y<img.height *img.channelNumber; y++) {
+    for (int y=img.channelNumber; y<img.height * img.channelNumber; y++) {
         for (int x=0; x<img.width; x+=img.channelNumber) {
-            int gradientX=0, gradientY=0;
-            gradientX = getHorizontalGradient(img, y, x, kernelX);
+            int gradientX = getHorizontalGradient(img, y, x, kernelX);
+            int gradientY = getVerticalGradient(img, y, x, kernelY);
+            int totalGradient = sqrt( pow(gradientX, 2) + pow(gradientY, 2) );
+            
+            int ch = img.channelNumber;
+            if (totalGradient > (int)255 / 2) {
+                while(ch != 0) *(imgCopy.data + (img.width * y) + x + (--ch)) = 255;
+            } else {
+                while(ch != 0) *(imgCopy.data + (img.width * y) + x + (--ch)) = 0;
+            }
         }
     }
 
-    submitChanges(img);
+    submitChanges(imgCopy);
     printf("Edges accentuated successfully.\n");
     free(img.data);
 }

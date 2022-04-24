@@ -49,12 +49,23 @@ int* getPixelHistogram (IMAGE img) {
 
 int getHorizontalGradient (IMAGE img, int y, int x, int kernelX[3][3]) {
     int gradientX = 0;
-    gradientX += img.data[ (img.width * y) + x + 1 ] * kernelX[1][2];
-    gradientX += img.data[ (img.width * y) + x - 1 ] * kernelX[1][0];
-    gradientX += img.data[ (img.width * y + 1) + x - 1 ] * kernelX[2][0];
-    gradientX += img.data[ (img.width * y - 1) + x + 1 ] * kernelX[0][2];
-    gradientX += img.data[ (img.width * y - 1) + x - 1 ] * kernelX[0][0];
-    gradientX += img.data[ (img.width * y + 1) + x + 1 ] * kernelX[2][2];
-
+    gradientX += img.data[ (img.width * y) + x + img.channelNumber ] * kernelX[1][2];
+    gradientX += img.data[ (img.width * y) + x - img.channelNumber ] * kernelX[1][0];
+    gradientX += img.data[ (img.width * y + img.channelNumber) + x - img.channelNumber ] * kernelX[2][0];
+    gradientX += img.data[ (img.width * y - img.channelNumber) + x + img.channelNumber ] * kernelX[0][2];
+    gradientX += img.data[ (img.width * y - img.channelNumber) + x - img.channelNumber ] * kernelX[0][0];
+    gradientX += img.data[ (img.width * y + img.channelNumber) + x + img.channelNumber ] * kernelX[2][2];
     return gradientX;
+}
+
+int getVerticalGradient (IMAGE img, int y, int x, int kernelY[3][3]) {
+    int gradientY = 0;
+    gradientY += img.data[ (img.width * y + img.channelNumber) + x + img.channelNumber ] * kernelY[2][2];
+    gradientY += img.data[ (img.width * y + img.channelNumber) + x - img.channelNumber ] * kernelY[2][0];
+    gradientY += img.data[ (img.width * y - img.channelNumber) + x + img.channelNumber ] * kernelY[0][2];
+    gradientY += img.data[ (img.width * y - img.channelNumber) + x - img.channelNumber ] * kernelY[0][0];
+    gradientY += img.data[ (img.width * y - img.channelNumber) + x ] * kernelY[0][1];
+    gradientY += img.data[ (img.width * y + img.channelNumber) + x ] * kernelY[2][1];
+
+    return gradientY;
 }

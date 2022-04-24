@@ -10,5 +10,6 @@ int* getPixelHistogram(IMAGE);
 double getNeighborSum(int);
 
 int getHorizontalGradient(IMAGE, int, int, int[3][3]);
+int getVerticalGradient(IMAGE, int, int, int[3][3]);
 
 #endif
