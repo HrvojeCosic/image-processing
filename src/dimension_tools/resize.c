@@ -25,7 +25,7 @@ void nearestNeighborResize(char* filename, IMAGE newProps) {
     }
 
     submitChanges(newProps);
-    printf("Image resized successfuly.\n");
+    printf("Image resized successfuly (using nearest neighbor algorithm).\n");
     free(newProps.data);
     free(originalImg.data);
 }
