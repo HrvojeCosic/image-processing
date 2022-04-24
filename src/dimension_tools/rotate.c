@@ -1,4 +1,5 @@
 #include "dimension_tools.h"
+#include "dimension_tools_internal.h"
 
 void rotateLeft(char* filename) {
     IMAGE originalImg = readImg(filename);
@@ -7,15 +8,7 @@ void rotateLeft(char* filename) {
     newImg.width = originalImg.height;
     newImg.height = originalImg.width;
 
-    for (int y=0; y<originalImg.height * originalImg.channelNumber; y+=originalImg.channelNumber) {
-        for (int x=0; x<originalImg.width * originalImg.channelNumber; x+=originalImg.channelNumber) {
-            int ch = originalImg.channelNumber;
-            while (ch != 0) {
-                newImg.data[x*originalImg.height + y + ch] = originalImg.data[y*originalImg.width + x + ch];
-                ch--;
-            }
-        }
-    }
+    transposeImage(&originalImg, &newImg);
 
     submitChanges(newImg);
     printf("Image rotated 90 degrees to the left successfuly.\n");
@@ -30,15 +23,7 @@ void rotateRight(char* filename) {
     newImg.width = originalImg.height;
     newImg.height = originalImg.width;
 
-    for (int y=0; y<originalImg.height * originalImg.channelNumber; y+=originalImg.channelNumber) {
-        for (int x=0; x<originalImg.width * originalImg.channelNumber; x+=originalImg.channelNumber) {
-            int ch = originalImg.channelNumber;
-            while (ch != 0) {
-                newImg.data[x*originalImg.height + y + ch] = originalImg.data[y*originalImg.width + x + ch];
-                ch--;
-            }
-        }
-    }
+    transposeImage(&originalImg, &newImg);
 
     for (int y=0; y<newImg.height*newImg.channelNumber; y+=newImg.channelNumber) {
         int leftIdx = newImg.channelNumber - 1;

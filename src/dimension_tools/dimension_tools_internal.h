@@ -4,5 +4,6 @@
 #include "../Image.h"
 
 void fixAspectRatio(IMAGE, int*, int*);
+void transposeImage(IMAGE*, IMAGE*);
 
 #endif
