@@ -6,5 +6,6 @@
 void applyGrayscale(char*);
 void applyBinary(char*);
 void applyBoxBlur(char*, int);
+void accentuateEdges(char*);
 
 #endif
