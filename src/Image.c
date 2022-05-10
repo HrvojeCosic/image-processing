@@ -47,12 +47,12 @@ bool writeToImg(char* filename, IMAGE props) {
 }
 
 void submitChanges(IMAGE img) {
-    // TODO: allow saving in arbitrary folders
+    // TODO: allow saving in other folders + add dynamic extension
     writeToImg("./processedImg.jpg", img);
 }
 
 void createImgPath(char* dest, int destSize, const char* filename) {
-    char dirMovement[4] = "../";
+    char dirMovement[4] = ""; // TODO: allow saving in other folders
     int moved = strcat_s(dest, destSize, dirMovement);
     int applied = strcat_s(dest, destSize, filename);
     if (moved != 0 || applied != 0) {

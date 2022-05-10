@@ -1,6 +1,5 @@
 *.exe
 .vscode
-exampleImg.jpg
-exampleImgBMP.bmp
-exampleImgPNG.png
-processedImg.jpg
+*.jpg
+*.bmp
+*.png

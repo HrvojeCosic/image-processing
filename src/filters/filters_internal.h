@@ -4,11 +4,12 @@
 #include "../Image.h"
 #include <math.h>
 
-int computeThreshold(IMAGE); // https://en.wikipedia.org/wiki/Otsu%27s_method
+// Otsu's method
+int computeThreshold(IMAGE);
 int* getPixelHistogram(IMAGE);
 
-double getNeighborSum(int);
 
+// Sobel operator
 int getHorizontalGradient(IMAGE, int, int, int[3][3]);
 int getVerticalGradient(IMAGE, int, int, int[3][3]);
 
