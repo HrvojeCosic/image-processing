@@ -20,6 +20,6 @@ void applyGrayscale(char* filename) {
     }
 
     submitChanges(img);
-    printf("Grayscale applied successfuly.\n");
+    printf("Grayscale applied successfully.\n");
     free(img.data);
 }

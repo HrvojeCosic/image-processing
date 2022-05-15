@@ -20,6 +20,6 @@ void applyBinary(char* filename) {
     }
 
     submitChanges(img);
-    printf("Binary filter applied successfuly.\n");
+    printf("Binary filter applied successfully.\n");
     free(img.data);
 }

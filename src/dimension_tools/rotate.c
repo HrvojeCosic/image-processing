@@ -11,7 +11,7 @@ void rotateLeft(char* filename) {
     transposeImage(&originalImg, &newImg);
 
     submitChanges(newImg);
-    printf("Image rotated 90 degrees to the left successfuly.\n");
+    printf("Image rotated 90 degrees to the left successfully.\n");
     free(newImg.data);
     free(originalImg.data);
 }
@@ -46,7 +46,7 @@ void rotateRight(char* filename) {
     }
 
     submitChanges(newImg);
-    printf("Image rotated 90 degrees to the right successfuly.\n");
+    printf("Image rotated 90 degrees to the right successfully.\n");
     free(newImg.data);
     free(originalImg.data);
 }
