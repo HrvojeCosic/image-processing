@@ -2,7 +2,6 @@
 #define FILTERS_INTERNAL_H
 
 #include "../Image.h"
-#include <math.h>
 
 // Otsu's method
 int computeThreshold(IMAGE);

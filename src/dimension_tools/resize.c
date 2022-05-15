@@ -1,6 +1,8 @@
 #include "dimension_tools.h"
 #include "dimension_tools_internal.h"
 
+#include <math.h>
+
 void nearestNeighborResize(char* filename, IMAGE newProps) {
     IMAGE originalImg = readImg(filename);
     fixAspectRatio(originalImg, &newProps.width, &newProps.height);
@@ -11,6 +13,10 @@ void nearestNeighborResize(char* filename, IMAGE newProps) {
         exit(1);    
     }
     newProps.data = malloc(newProps.size * sizeof(uint8_t));
+    if (newProps.data == NULL) {
+        printf("Error in allocating memory for new image\n");
+        exit(1);
+    }
 
     double xRatio = originalImg.width / (double)newProps.width;
     double yRatio = originalImg.height / (double)newProps.height;

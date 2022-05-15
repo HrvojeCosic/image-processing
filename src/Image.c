@@ -9,13 +9,18 @@ IMAGE readImg(const char* filename) {
     createImgPath(path, sizeof(path), filename);
 
     IMAGE img = {0};
+
+	FILE* file = fopen(path, "rb");
+  	if(file) {
+  		fclose(file);
+    } else {
+        printf("Error: that image can not be loaded.\n");
+        exit(1);
+    }
+
     img.data = stbi_load(path, &img.width, &img.height, &img.channelNumber, 0);
     img.size = img.width*img.height*img.channelNumber;
 
-    if (img.data == NULL) {
-        printf("Error in loading the image\n");
-        exit(1);
-    }
     return img;
 }
 
@@ -63,6 +68,11 @@ void createImgPath(char* dest, int destSize, const char* filename) {
 
 char* getImgType(const char* filename) {
     const char* fileExt = strrchr(filename, '.');
+    
+    if (fileExt == NULL) {
+        printf("Error: File extension not inputted");
+        exit(1);
+    }
 
     int i = 0;
     while (*(imageExtensions+i) != NULL) {

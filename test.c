@@ -22,7 +22,7 @@ int main () {
     printf("5 - Flip\n");
     printf("6 - Rotate\n");
     printf("7 - Resize\n");
-    printf("8 - Exit\n");
+    printf("8+ - Exit\n");
     printf("*****************************\n");
 
     int counter = 0;

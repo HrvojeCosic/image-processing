@@ -1,4 +1,5 @@
 #include "filters_internal.h"
+#include <math.h>
 
 int computeThreshold(IMAGE img) {
     int* histogram = getPixelHistogram(img);

@@ -1,6 +1,8 @@
 #include "dimension_tools.h"
 #include "dimension_tools.h"
 
+#include "../Image.h"
+
 void flipHorizontal(char* filename) {
     IMAGE img = readImg(filename);
 
