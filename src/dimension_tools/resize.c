@@ -2,6 +2,8 @@
 #include "dimension_tools_internal.h"
 
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void nearestNeighborResize(char* filename, IMAGE newProps) {
     IMAGE originalImg = readImg(filename);

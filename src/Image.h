@@ -2,13 +2,8 @@
 #define IMAGE_H
 
 #include <stdint.h>
-#include <stdio.h>
 #include <stdbool.h>
-#include <string.h>
-#include "Image.h"
-#include "../lib/stb/stb_image.h"
-#include "../lib/stb/stb_image_write.h"
-
+#include <stddef.h>
 
 typedef struct Image {
     uint8_t* data;

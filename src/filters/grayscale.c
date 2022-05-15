@@ -1,4 +1,6 @@
 #include "filters.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void applyGrayscale(char* filename) {
     IMAGE img = readImg(filename);

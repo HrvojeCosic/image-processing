@@ -1,6 +1,8 @@
 #include "filters.h"
 #include "filters_internal.h"
 #include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void accentuateEdges (char* filename) {
     applyGrayscale(filename);

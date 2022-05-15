@@ -1,5 +1,7 @@
 #include "filters.h"
 #include "filters_internal.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 IMAGE img;
 void applyBoxBlur(char* filename, int intensity) {

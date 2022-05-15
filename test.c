@@ -1,6 +1,9 @@
 #include "src/Image.h"
 #include "src/dimension_tools/dimension_tools.h"
 #include "src/filters/filters.h"
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void runChoice(int, char*, int);
 
@@ -22,7 +25,8 @@ int main () {
     printf("5 - Flip\n");
     printf("6 - Rotate\n");
     printf("7 - Resize\n");
-    printf("8+ - Exit\n");
+    printf("8 - Sort pixels\n");
+    printf("9+ - Exit\n");
     printf("*****************************\n");
 
     int counter = 0;
@@ -80,6 +84,9 @@ void runChoice(int choice, char* initialFilename, int counter) {
             printf("Input new width: "); scanf("%d", &newProps.width);
             printf("Input new height: "); scanf("%d", &newProps.height);
             nearestNeighborResize(filename, newProps);
+            break;
+        case 8:
+            horizontalPixelSort(filename);
             break;
         default:
             printf("Exiting...");

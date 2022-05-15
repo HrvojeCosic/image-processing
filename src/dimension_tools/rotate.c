@@ -1,5 +1,7 @@
 #include "dimension_tools.h"
 #include "dimension_tools_internal.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void rotateLeft(char* filename) {
     IMAGE originalImg = readImg(filename);

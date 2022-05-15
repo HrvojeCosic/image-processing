@@ -7,5 +7,6 @@ void applyGrayscale(char*);
 void applyBinary(char*);
 void applyBoxBlur(char*, int);
 void accentuateEdges(char*);
+void horizontalPixelSort(char*);
 
 #endif
