@@ -12,4 +12,6 @@ int* getPixelHistogram(IMAGE);
 int getHorizontalGradient(IMAGE, int, int, int[3][3]);
 int getVerticalGradient(IMAGE, int, int, int[3][3]);
 
+void quickSortPixels(uint8_t*, int, int, int);
+
 #endif
