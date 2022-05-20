@@ -4,15 +4,15 @@
 
 <br>
 
-## Image processing options (with source code)
-- [binary](./src/filters/binary.c) - Applies binary (black and white) filter to an image using the [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method).
-- [grayscale](./src/filters/grayscale.c) - Applies grayscale filter to an image
-- [blur](./src/filters/blur.c) - Blurs an image.
-- [edge](./src/filters/edge.c) - Finds and accentuates edges of an image using the [Sobel–Feldman operator](https://en.wikipedia.org/wiki/Sobel_operator).
-- [sort](./src/filters/pixelSort.c) - Sorts image's pixels.
-- [resize](./src/dimension_tools/resize.c) - Scales an image while preserving the aspect ratio.
-- [flip](./src/dimension_tools/flip.c) - Flips an image.
-- [rotate](./src/dimension_tools/rotate.c) - Rotates an image.
+## Image processing options
+- <b>binary</b> - Applies binary (black and white) filter to an image using [Otsu's method](https://en.wikipedia.org/wiki/Otsu%27s_method).
+- <b>grayscale</b> - Applies grayscale filter to an image
+- <b>blur</b> - Blurs an image.
+- <b>edge</b> - Finds and accentuates edges of an image using [Sobel–Feldman operator](https://en.wikipedia.org/wiki/Sobel_operator).
+- <b>sort</b> - Sorts image's pixels.
+- <b>resize</b> - Scales an image while preserving the aspect ratio.
+- <b>flip</b> - Flips an image.
+- <b>rotate</b> - Rotates an image.
 
 ## Supported Image Types
 - jpg
