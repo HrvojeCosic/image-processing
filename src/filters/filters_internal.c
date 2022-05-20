@@ -82,7 +82,7 @@ void quickSortPixels(uint8_t* arr, int l, int r, int chN) {
             currChAvg += arr[j+chTemp];
             pivotChAvg += arr[r-chTemp];
         }
-        currChAvg /= 3; pivotChAvg /= 3;
+        currChAvg /= chN; pivotChAvg /= chN;
 
         if (currChAvg < pivotChAvg) {
             i+=chN;

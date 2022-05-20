@@ -30,13 +30,13 @@ int main () {
     printf("*****************************\n");
 
     int counter = 0;
-    do {
+    for (;;) {
         printf("\nInput the process number: ");
         scanf("%d", &choice);
         getchar();
         runChoice(choice, filename, counter);
         counter++;
-    } while (choice != 8);
+    }
 }
 
 void runChoice(int choice, char* initialFilename, int counter) {
