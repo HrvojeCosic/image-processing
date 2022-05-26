@@ -57,8 +57,9 @@ bool writeToImg(char* filename, IMAGE props) {
 }
 
 void submitChanges(IMAGE img) {
-    // TODO: allow saving in other folders + add dynamic extension
-    writeToImg("./processedImg.jpg", img);
+    char currentProcessedImgPath[100];
+    sprintf(currentProcessedImgPath, "./%s", processedImgFilename);
+    writeToImg(currentProcessedImgPath, img);
 }
 
 void createImgPath(char* dest, int destSize, const char* filename) {

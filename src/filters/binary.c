@@ -8,7 +8,9 @@ void applyBinary(char* filename) {
 
     if (img.channelNumber >= 3) {
         applyGrayscale(filename);
-        img = readImg("./processedImg.jpg");
+        char fixedImgFilename[100];
+        sprintf(fixedImgFilename, "./%s", processedImgFilename);
+        img = readImg(fixedImgFilename);
     }
 
     int threshold = computeThreshold(img);

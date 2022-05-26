@@ -4,16 +4,21 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 void runChoice(int, char*, int);
-void runInputFilename();
+void runInputInitialFilename();
+void runInputProcessedFilename();
+void setProcessedImageFilenameIndex();
 
 char newImageBool = 'N';
 int choice;
 char filename[40];
+int counter = 0;
+
 
 int main () {
-    runInputFilename();
+    runInputInitialFilename();
     
     printf("*****************************\n");
     printf("1 - Apply binary filter\n");
@@ -27,31 +32,21 @@ int main () {
     printf("9+ - Exit\n");
     printf("*****************************\n");
 
-    int counter = 0;
     for (;;) {
         printf("\nInput the process number: ");
         scanf("%d", &choice);
         getchar();
 
-        if (choice >= 9) { 
+        if (choice >= 9) { // todo: fix hardcoded number
             printf("Exiting...");
             exit(0);
          }
+
         if (counter > 0) {
-            printf("\nChoose new image for processing? (Y/N): ");
+            printf("\nChoose new image to be processed? (Y/N): ");
             scanf("%c", &newImageBool);
             getchar();
-            if (newImageBool == 'Y' || newImageBool == 'y') {
-                runInputFilename();
-                rename("processedImg.jpg", "processedImg2.jpg");
-            } else {
-                printf("\nCreate new image for applied effects? (Y/N): ");
-                scanf("%c", &newImageBool);
-                getchar();
-                if (newImageBool == 'Y' || newImageBool == 'y') {
-                    rename("processedImg.jpg", "processedImg2.jpg");
-                }
-            }
+            toupper(newImageBool) == 'Y' ? runInputInitialFilename() : runInputProcessedFilename();
         }
 
         runChoice(choice, filename, counter);
@@ -59,19 +54,39 @@ int main () {
     }
 }
 
-void runInputFilename () {
+void runInputInitialFilename () {
     printf("Input the image file name (name.extension): ");
     scanf("%s", filename); 
     getchar();
 
     getImgType(filename);
     readImg(filename);
+
+    setProcessedImageFilenameIndex();
+}
+
+void setProcessedImageFilenameIndex () {
+    char counterStringified[10] = {0};
+    sprintf(counterStringified, "%d", counter);
+    sprintf(processedImgFilename, "%s%s%s",
+    "processedImg", counterStringified, getImgType(filename)
+    );
+    rename("processedImg.jpg", processedImgFilename );
+}
+
+void runInputProcessedFilename () {
+    printf("\nCreate separate image for applied effects? (Y/N): ");
+    scanf("%c", &newImageBool);
+    getchar();
+    if (toupper(newImageBool) == 'Y') {
+        setProcessedImageFilenameIndex();
+    }
 }
 
 void runChoice(int choice, char* initialFilename, int counter) {
-        char filename[40];
-        if (counter > 0 && newImageBool != 'Y' && newImageBool != 'y') {
-            strcat(filename, "processedImg.jpg");
+        char filename[40] = {0};
+        if (counter > 0 && toupper(newImageBool) != 'Y') {
+            strcat(filename, processedImgFilename);
         } else {
             strcpy(filename, initialFilename);
         }
