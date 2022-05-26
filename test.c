@@ -6,18 +6,14 @@
 #include <stdlib.h>
 
 void runChoice(int, char*, int);
+void runInputFilename();
 
 char newImageBool = 'N';
+int choice;
+char filename[40];
 
 int main () {
-    char filename[40];
-    int choice;
-    printf("Input the image file name (name.extension): ");
-    scanf("%s", filename); 
-    getchar();
-
-    getImgType(filename);
-    readImg(filename);
+    runInputFilename();
     
     printf("*****************************\n");
     printf("1 - Apply binary filter\n");
@@ -37,18 +33,39 @@ int main () {
         scanf("%d", &choice);
         getchar();
 
+        if (choice >= 9) { 
+            printf("Exiting...");
+            exit(0);
+         }
         if (counter > 0) {
-            printf("\nCreate new image for processing? (Y/N): ");
+            printf("\nChoose new image for processing? (Y/N): ");
             scanf("%c", &newImageBool);
             getchar();
             if (newImageBool == 'Y' || newImageBool == 'y') {
+                runInputFilename();
                 rename("processedImg.jpg", "processedImg2.jpg");
+            } else {
+                printf("\nCreate new image for applied effects? (Y/N): ");
+                scanf("%c", &newImageBool);
+                getchar();
+                if (newImageBool == 'Y' || newImageBool == 'y') {
+                    rename("processedImg.jpg", "processedImg2.jpg");
+                }
             }
         }
 
         runChoice(choice, filename, counter);
         counter++;
     }
+}
+
+void runInputFilename () {
+    printf("Input the image file name (name.extension): ");
+    scanf("%s", filename); 
+    getchar();
+
+    getImgType(filename);
+    readImg(filename);
 }
 
 void runChoice(int choice, char* initialFilename, int counter) {
