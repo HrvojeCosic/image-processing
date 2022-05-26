@@ -7,6 +7,8 @@
 
 void runChoice(int, char*, int);
 
+char newImageBool = 'N';
+
 int main () {
     char filename[40];
     int choice;
@@ -34,6 +36,16 @@ int main () {
         printf("\nInput the process number: ");
         scanf("%d", &choice);
         getchar();
+
+        if (counter > 0) {
+            printf("\nCreate new image for processing? (Y/N): ");
+            scanf("%c", &newImageBool);
+            getchar();
+            if (newImageBool == 'Y' || newImageBool == 'y') {
+                rename("processedImg.jpg", "processedImg2.jpg");
+            }
+        }
+
         runChoice(choice, filename, counter);
         counter++;
     }
@@ -41,10 +53,10 @@ int main () {
 
 void runChoice(int choice, char* initialFilename, int counter) {
         char filename[40];
-        if (counter == 0) {
-            strcpy(filename, initialFilename);
-        } else {
+        if (counter > 0 && newImageBool != 'Y' && newImageBool != 'y') {
             strcat(filename, "processedImg.jpg");
+        } else {
+            strcpy(filename, initialFilename);
         }
 
         int blurRadius;
