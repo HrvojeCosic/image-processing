@@ -20,5 +20,13 @@
 - bmp
 <p>Image encoding and decoding are handled using parts of the <a href="https://github.com/nothings/stb">stb library</a></p>
 
+
+## Running locally
+1) Clone the repository and navigate to it
+2) Place an example image in the local folder
+3) Run the following command in your terminal: `gcc *.c */*.c */*/*.c -o bitImger` ([GCC compiler](https://gcc.gnu.org/) is required)
+4) Run the following command in your terminal: `bitImger.exe`
+
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
