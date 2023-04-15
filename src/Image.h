@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-char processedImgFilename[100];
+extern char processedImgFilename[100];
 
 typedef struct Image {
     uint8_t* data;
