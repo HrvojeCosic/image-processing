@@ -13,7 +13,15 @@ CFILES=$(foreach DIR,$(CODEDIRS),$(wildcard $(DIR)/*.c))
 OFILES=$(patsubst %.c,%.o,$(CFILES))
 INCFILES=$(patsubst %.c,%.d,$(CFILES))
 
-all: $(BINARY)
+#Variables passed to "make run"
+OG_FNAME:=
+PROC_OPT:=
+PROC_VAL:=
+
+build: $(BINARY)
+
+run: bin
+	./bin $(OG_FNAME) $(PROC_OPT) $(PROC_VAL)
 
 $(BINARY): $(OFILES)
 	$(CC) -o $@ $^ -L$(LIB_STB_PATH) -lm
@@ -33,5 +41,5 @@ clean:
 
 diff:
 	@git status
-	@git diff --statilters_internal.h"
+	@git diff --stat
 
