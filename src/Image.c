@@ -4,8 +4,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../lib/stb/stb_image.h"
-#include "../lib/stb/stb_image_write.h"
+#include <stb/stb_image.h>
+#include <stb/stb_image_write.h>
 
 char* imageExtensions[] = {".jpg", ".png", ".bmp", NULL};
 char processedImgFilename[100];
