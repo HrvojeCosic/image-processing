@@ -1,6 +1,6 @@
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "Image.h"
+#include "../include/Image.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

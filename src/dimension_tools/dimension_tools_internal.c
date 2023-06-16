@@ -1,4 +1,4 @@
-#include "dimension_tools.h"
+#include "../../include/dimension_tools.h"
 
 void fixAspectRatio(IMAGE image, int* wProp, int* hProp) {
     float aspectRatio = (float)image.width / image.height;

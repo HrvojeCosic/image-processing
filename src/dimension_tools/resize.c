@@ -1,5 +1,5 @@
-#include "dimension_tools.h"
-#include "dimension_tools_internal.h"
+#include "../../include/dimension_tools.h"
+#include "../../include/dimension_tools_internal.h"
 
 #include <math.h>
 #include <stdio.h>

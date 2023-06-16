@@ -1,5 +1,5 @@
-#include "filters.h"
-#include "filters_internal.h"
+#include "../../include/filters.h"
+#include "../../include/filters_internal.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

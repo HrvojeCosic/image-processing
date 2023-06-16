@@ -1,7 +1,5 @@
-#include "dimension_tools.h"
-#include "dimension_tools.h"
-
-#include "../Image.h"
+#include "../../include/dimension_tools.h"
+#include "../../include/Image.h"
 #include <stdio.h>
 #include <stdlib.h>
 

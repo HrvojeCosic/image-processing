@@ -1,7 +1,7 @@
 #ifndef FILTERS_INTERNAL_H
 #define FILTERS_INTERNAL_H
 
-#include "../Image.h"
+#include "Image.h"
 
 // Otsu's method
 int computeThreshold(IMAGE);

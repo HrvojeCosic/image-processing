@@ -1,6 +1,6 @@
-#include "src/Image.h"
-#include "src/dimension_tools/dimension_tools.h"
-#include "src/filters/filters.h"
+#include "./include/Image.h"
+#include "./include/dimension_tools.h"
+#include "./include/filters.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

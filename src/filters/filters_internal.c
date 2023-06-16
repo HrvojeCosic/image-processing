@@ -1,4 +1,4 @@
-#include "filters_internal.h"
+#include "../../include/filters_internal.h"
 #include <math.h>
 
 int computeThreshold(IMAGE img) {

@@ -1,6 +1,9 @@
+bin
 *.out
 *.exe
 .vscode
 *.jpg
 *.bmp
 *.png
+*.o
+*.d

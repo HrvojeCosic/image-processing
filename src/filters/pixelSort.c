@@ -1,8 +1,8 @@
-#include "filters.h"
-#include "filters_internal.h"
+#include "../../include/filters.h"
+#include "../../include/filters_internal.h"
+#include "../../include/dimension_tools.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "../dimension_tools/dimension_tools.h"
 
 void horizontalPixelSort(char* filename) {
     IMAGE img = readImg(filename);
