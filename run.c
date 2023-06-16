@@ -18,27 +18,26 @@ int main(int argc, char** argv) {
     sprintf(processedImgFilename, "%s%s",
             "processed-", filename);
     rename("processedImg.jpg", processedImgFilename );
-    
 
-    if (strcmp(processingOption, "binary")) {
+    if (strcmp(processingOption, "binary") == 0) {
         applyBinary(filename);
-    } else if (strcmp(processingOption, "grayscale")) {
+    } else if (strcmp(processingOption, "grayscale") == 0) {
         applyGrayscale(filename);
-    } else if (strcmp(processingOption, "blur")) {
+    } else if (strcmp(processingOption, "blur") == 0) {
         applyBoxBlur(filename, atoi(processingValue));
-    } else if (strcmp(processingOption, "flip")) {
+    } else if (strcmp(processingOption, "flip") == 0) {
         if (strcmp(processingValue, "horizontal") == 0) {
             flipHorizontal(filename);
         } else if (strcmp(processingValue, "vertical") == 0) {
             flipVertical(filename);
         }
-    } else if (strcmp(processingOption, "rotate")) {
+    } else if (strcmp(processingOption, "rotate") == 0) {
         if (strcmp(processingValue, "left") == 0) {
             rotateLeft(filename);
         } else if (strcmp(processingValue, "right") == 0) {
            rotateRight(filename);
         }
-    } else if (strcmp(processingOption, "pixel sort")) {
+    } else if (strcmp(processingOption, "pixel sort") == 0) {
         horizontalPixelSort(filename);
     }
 

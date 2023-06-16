@@ -38,8 +38,3 @@ clean:
 	rm -rf $(BINARY) $(OFILES) $(INCFILES)
 
 -include $(INCFILES)
-
-diff:
-	@git status
-	@git diff --stat
-
