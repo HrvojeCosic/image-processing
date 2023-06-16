@@ -19,11 +19,11 @@
 - bmp
 
 ## Setup
+note: on Windows, follow first two steps and compile all the .c files manually
 1) Clone the repository and navigate to it
 2) Place an example image in the local folder
 3) Run the `make deps` command to install necessary dependencies
 4) Run the `make` command
-
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

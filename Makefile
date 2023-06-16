@@ -1,10 +1,3 @@
-# Library Dependencies
-#
-# This Makefile requires the following libraries:
-# - stb: https://github.com/nothings/stb
-#
-
-
 BINARY=bin
 CODEDIRS=. $(shell find src -type d)
 INCDIRS=. ./include
