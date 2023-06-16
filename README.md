@@ -1,4 +1,4 @@
-<p align="center">A set of image processing algorithms implemented in C</p>
+<p align="center">Image processing library</p>
 </div>
 
 <br>
@@ -17,14 +17,12 @@
 - jpg
 - png
 - bmp
-<p>Image encoding and decoding are handled using parts of the <a href="https://github.com/nothings/stb">stb library</a></p>
 
-
-## Running locally
+## Setup
 1) Clone the repository and navigate to it
 2) Place an example image in the local folder
-3) Run the following command in your terminal: `gcc *.c */*.c */*/*.c -o imageProcessing` ([GCC compiler](https://gcc.gnu.org/) is required)
-4) Run the following command in your terminal: `imageProcessing.exe`
+3) Run the `make deps` command to install necessary dependencies
+4) Run the `make` command
 
 
 ## License

@@ -18,7 +18,7 @@ CFLAGS=-Wall -Wextra -g $(foreach DIR,$(INCDIRS),-I$(DIR)) $(OPT) $(DEPFLAGS)
 
 CFILES=$(foreach DIR,$(CODEDIRS),$(wildcard $(DIR)/*.c))
 OFILES=$(patsubst %.c,%.o,$(CFILES))
-DEPFILES=$(patsubst %.c,%.d,$(CFILES))
+INCFILES=$(patsubst %.c,%.d,$(CFILES))
 
 all: $(BINARY)
 
@@ -28,11 +28,17 @@ $(BINARY): $(OFILES)
 %.o:%.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-clean:
-	rm -rf $(BINARY) $(OFILES) $(DEPFILES)
+deps:
+	git clone git@github.com:nothings/stb.git
+	sudo mv stb/stb_image.h stb/stb_image_write.h /usr/local/include
+	rm -rf stb
 
--include $(DEPFILES)
+clean:
+	rm -rf $(BINARY) $(OFILES) $(INCFILES)
+
+-include $(INCFILES)
 
 diff:
 	@git status
 	@git diff --statilters_internal.h"
+
