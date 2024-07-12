@@ -12,7 +12,7 @@ void horizontalPixelSort(char* filename) {
         printf("Image is too large, downsizing...\n");
         nearestNeighborResize(filename, newProps);
 
-        char currentProcessedImgPath[100];
+        char currentProcessedImgPath[104];
         sprintf(currentProcessedImgPath, "./%s", processedImgFilename);
         img = readImg(currentProcessedImgPath);
     } 

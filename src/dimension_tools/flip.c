@@ -40,7 +40,7 @@ void flipVertical(char* filename) {
     unsigned bottom = (img.height - 1) * chWidth;
     while (top < bottom) {
 
-        for (int x=0; x<chWidth; x++) {
+        for (unsigned x=0; x<chWidth; x++) {
             int px1Idx = top + x;
             int px2Idx = bottom + x;
 

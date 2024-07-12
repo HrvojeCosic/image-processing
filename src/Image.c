@@ -58,12 +58,13 @@ bool writeToImg(char* filename, IMAGE props) {
 }
 
 void submitChanges(IMAGE img) {
-    char currentProcessedImgPath[100];
+    char currentProcessedImgPath[102];
     sprintf(currentProcessedImgPath, "./%s", processedImgFilename);
     writeToImg(currentProcessedImgPath, img);
 }
 
 void createImgPath(char* dest, int destSize, const char* filename) {
+    (void)destSize;
     char dirMovement[4] = "";
     strcat(dest, dirMovement);
     strcat(dest, filename);

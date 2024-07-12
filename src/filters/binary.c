@@ -8,18 +8,18 @@ void applyBinary(char* filename) {
 
     if (img.channelNumber >= 3) {
         applyGrayscale(filename);
-        char fixedImgFilename[100];
+        char fixedImgFilename[102];
         sprintf(fixedImgFilename, "./%s", processedImgFilename);
         img = readImg(fixedImgFilename);
     }
 
     int threshold = computeThreshold(img);
 
-    for (int i=0; i<img.size; i+=img.channelNumber) {
+    for (size_t i=0; i<img.size; i+=img.channelNumber) {
         int greyLvl = *(img.data+i);
         int finalPixel = greyLvl < threshold ? 0 : 255;
 
-        for (int j=i; j < i+img.channelNumber; j++)
+        for (size_t j=i; j < i+img.channelNumber; j++)
             *(img.data+j) = finalPixel;
     }
 

@@ -6,7 +6,7 @@
 
 void accentuateEdges (char* filename) {
     applyGrayscale(filename);
-    char currentProcessedImgPath[100];
+    char currentProcessedImgPath[102];
     sprintf(currentProcessedImgPath, "./%s", processedImgFilename);
     IMAGE img = readImg(currentProcessedImgPath);
     IMAGE imgCopy = readImg(currentProcessedImgPath);

@@ -36,7 +36,7 @@ int* getPixelHistogram (IMAGE img) {
     for (int i=0; i<=maxPixelIntensity; i++)
         histogram[i] = 0;
 
-    for (int i=0; i<img.size; i+=img.channelNumber) {
+    for (size_t i=0; i<img.size; i+=img.channelNumber) {
         int channelAvg = 0;
         int ch = img.channelNumber;
         while(ch != 0) channelAvg += *(img.data + i + (--ch));

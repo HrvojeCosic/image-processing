@@ -9,6 +9,7 @@
 
 
 int main(int argc, char** argv) {
+    (void)argc;
     char filename[64];
     char* originalFilename = argv[1];
     char* processingValue = argv[3];
@@ -37,7 +38,7 @@ int main(int argc, char** argv) {
         } else if (strcmp(processingValue, "right") == 0) {
            rotateRight(filename);
         }
-    } else if (strcmp(processingOption, "pixel sort") == 0) {
+    } else if (strcmp(processingOption, "pixelSort") == 0) {
         horizontalPixelSort(filename);
     }
 
